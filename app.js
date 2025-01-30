@@ -4,8 +4,12 @@ const formRoute = require('./routes/form');
 const cors = require("cors");
 dotenv.config({path:'./.env'});
 const app = express();
+const corsOptions = {
+  origin: 'https://huzefa63.github.io/project-form/', // Replace with your website URL
+  methods: 'POST', // Allow only POST requests (for form submissions)
+};
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.options('*',cors());
 app.use(express.urlencoded({ extended: true }));
 
